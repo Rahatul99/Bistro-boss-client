@@ -7,7 +7,10 @@ import Menu from "../Pages/Menu/Menu/Menu";
 import Order from "../Pages/Orders/Order/Order";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
+// import PrivateRoute from "./PrivateRoute";
 
   export const router = createBrowserRouter([
     {
@@ -22,9 +25,13 @@ import PrivateRoute from "./PrivateRoute";
             path: 'menu',
             element: <Menu />
         },
+        // {
+        //     path: 'order/:category',
+        //     element: <PrivateRoute><Order /></PrivateRoute>
+        // },
         {
             path: 'order/:category',
-            element: <PrivateRoute><Order /></PrivateRoute>
+            element: <Order />
         },
         {
             path: 'login',
@@ -36,4 +43,14 @@ import PrivateRoute from "./PrivateRoute";
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <PrivateRoute><Dashboard /></PrivateRoute>,
+      children: [
+        {
+          path: 'mycart',
+          element: <MyCart />
+        }
+      ]
+    }
   ]);

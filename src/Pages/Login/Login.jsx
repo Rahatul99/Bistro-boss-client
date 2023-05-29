@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const Login = () => {
     // const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
+    console.log(disabled);
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -89,7 +90,8 @@ const Login = () => {
                                 {/* <button className="btn btn-outline btn-xs mt-2">Validate</button> */}
                             </div>
                             <div className="form-control mt-6">
-                                <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
+                                {/* <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" /> */}
+                                <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
                         <p><small>New here? <Link to="/signup">Create an account</Link></small></p>
