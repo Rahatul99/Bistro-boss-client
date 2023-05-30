@@ -16,7 +16,7 @@ const SocialLogIn = () => {
         .then(result => {
             const loggedInUser = result.user;
 
-            
+
 
             const savedUser = { name: loggedInUser.displayName, email: loggedInUser.email }
             fetch('http://localhost:5000/users', {
@@ -27,10 +27,8 @@ const SocialLogIn = () => {
                 body: JSON.stringify(savedUser)
             })
             .then(res => res.json())
-            .then(data => {
-                if(data.insertId) {
+            .then(() => {
                     navigate(from, {replace: true});
-                }
             })
 
 
